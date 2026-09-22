@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple celebration of the beautiful game.">
+  <title>Matchday</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f6f7f2;
+      --muted: #c3c9bb;
+      --accent: #d8ff3e;
+      --night: #101716;
+      --panel: rgba(13, 24, 21, 0.82);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: var(--night);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        linear-gradient(90deg, rgba(7, 15, 13, 0.94) 0%, rgba(7, 15, 13, 0.62) 46%, rgba(7, 15, 13, 0.2) 100%),
+        url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=2000&q=85") center / cover;
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 15, 13, 0.38), transparent 38%, rgba(7, 15, 13, 0.72));
+      pointer-events: none;
+    }
+
+    header, main, footer {
+      width: min(1180px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 28px;
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .mark { color: var(--accent); }
+
+    nav { color: var(--muted); }
+
+    main {
+      display: flex;
+      align-items: center;
+      padding-block: 72px;
+    }
+
+    .intro { max-width: 650px; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 22px 0 18px;
+      font-size: clamp(4rem, 10vw, 8.5rem);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 0.86;
+    }
+
+    .intro p {
+      max-width: 480px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      line-height: 1.55;
+    }
+
+    .fact {
+      width: fit-content;
+      margin-top: 34px;
+      padding: 15px 18px;
+      border-left: 2px solid var(--accent);
+      background: var(--panel);
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 24px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    footer a {
+      color: inherit;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 600px) {
+      header, main, footer { width: min(100% - 32px, 1180px); }
+      header { padding-block: 20px; }
+      nav { display: none; }
+      main { padding-block: 52px; }
+      h1 { font-size: clamp(4rem, 22vw, 7rem); }
+      footer { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="mark">Matchday / 01</div>
+      <nav>Football, beautifully simple</nav>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow">The beautiful game</div>
+        <h1 id="page-title">Play<br>on.</h1>
+        <p>One ball, two goals, endless possibilities. Football turns open space into a story worth watching.</p>
+        <div class="fact">90 minutes of possibility</div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Made for matchday</span>
+      <a href="https://unsplash.com/photos/soccer-ball-on-grass-3J4Hf1b9x9E" rel="noreferrer">Photo via Unsplash</a>
+    </footer>
+  </div>
+</body>
+</html>
